@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Iris Flower Prediction</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+        }
+
+        .container {
+            width: 400px;
+            padding: 35px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            color: white;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        .input-group label {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: #ff9a9e;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn:hover {
+            background: #ff6a88;
+        }
+
+        .result-box {
+            margin-top: 20px;
+            padding: 10px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>🌸 Iris Flower Prediction</h2>
+
+        <form action="/predict" method="POST">
+            
+            <div class="input-group">
+                <label>Sepal Length</label>
+                <input type="number" step="any" name="sepal_length" required>
+            </div>
+
+            <div class="input-group">
+                <label>Sepal Width</label>
+                <input type="number" step="any" name="sepal_width" required>
+            </div>
+
+            <div class="input-group">
+                <label>Petal Length</label>
+                <input type="number" step="any" name="petal_length" required>
+            </div>
+
+            <div class="input-group">
+                <label>Petal Width</label>
+                <input type="number" step="any" name="petal_width" required>
+            </div>
+
+            <button type="submit" class="btn">Predict Flower 🌼</button>
+        </form>
+
+        {% if result %}
+            <div class="result-box">
+                Prediction: {{ result }}
+            </div>
+        {% endif %}
+
+    </div>
+
+</body>
+</html>
